@@ -2,6 +2,9 @@
 package com.mycompany.sorting;
 
 //counting sort, worst case is O(n+k) where k is the range of the keys
+
+import java.util.Arrays;
+
 //non-comparitive sorting algorithm
 
 public class CountingSort {
@@ -18,12 +21,10 @@ public class CountingSort {
             }
         }
         
-        //create and initialize count array with zeroes, 9 total elements in count
+        //create and fill count array with zeroes, 9 total elements in count
         //count is [0 0 0 0 0 0 0 0 0]
         int[] count = new int[max+1];
-        for ( int i = 0; i < max; i++){
-            count[i] = 0;
-        }
+        Arrays.fill(count, 0);
         
         //store count of each element
         //if the number 3 in array occurs twice, then store 2 in index 3 of count array
@@ -45,7 +46,8 @@ public class CountingSort {
         //index 4 of the count array is 6
         //number 4 belongs at the 6-1=5 index of the output array
         for (int i = array.length - 1; i >= 0; i--){
-            output[count[array[i]]-1] = array[i];
+            int sortedIndex = count[array[i]] - 1;
+            output[sortedIndex] = array[i];
             count[array[i]]--;
         }
         

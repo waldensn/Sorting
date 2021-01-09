@@ -9,8 +9,8 @@ public class SortingTestCase {
     
     @Before
     public void setUpClass() {
-        unsortedArray = new int[] {2, 82, 6, 36, 68, 20, 88, 2, 12, 78, 9, 55, 41, 2, 20, 71, 18};
-        sortedArray = new int[] {2, 2, 2, 6, 9, 12, 18, 20, 20, 36, 41, 55, 68, 71, 78, 82, 88};
+        unsortedArray = new int[] {2, 283, 82, 6, 18642, 36, 106, 68, 20, 88, 2, 12, 78, 9, 55, 41, 3192, 2, 20, 71, 18};
+        sortedArray = new int[] {2, 2, 2, 6, 9, 12, 18, 20, 20, 36, 41, 55, 68, 71, 78, 82, 88, 106, 283, 3192, 18642};
     }
     
     @Test
@@ -46,6 +46,12 @@ public class SortingTestCase {
     @Test
     public void testCountingSort(){
         CountingSort.sort(unsortedArray);
+        Assert.assertArrayEquals(unsortedArray, sortedArray);
+    }
+    
+    @Test
+    public void testRadixSort(){
+        RadixSort.sort(unsortedArray);
         Assert.assertArrayEquals(unsortedArray, sortedArray);
     }
     
